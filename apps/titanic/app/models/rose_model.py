@@ -1,22 +1,18 @@
-from pathlib import Path
 import pandas as pd
-from sklearn.tree import DecisionTreeClassifier, export_text
-from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-
-_CSV_PATH = Path(__file__).resolve().parent / "Titanic-Dataset.csv"
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.tree import DecisionTreeClassifier, export_text
 
 
 class RoseModel:
 
-    def __init__(self):
+    def __init__(self, df: pd.DataFrame):
         self.model = DecisionTreeClassifier()
-        self._X_train, self._X_test, self._y_train, self._y_test = self._prepare_data()
+        self._X_train, self._X_test, self._y_train, self._y_test = self._prepare_data(df)
         self.model.fit(self._X_train, self._y_train)
 
-    def _prepare_data(self):
-        df = pd.read_csv(_CSV_PATH)
+    def _prepare_data(self, df: pd.DataFrame):
         df = df[["Survived", "Pclass", "Sex", "Age", "SibSp", "Parch", "Fare"]].dropna().copy()
         df["Sex"] = LabelEncoder().fit_transform(df["Sex"])
         X = df.drop("Survived", axis=1)

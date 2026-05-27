@@ -1,28 +1,40 @@
-from secom.app.controllers import user_controller
-from secom.app.schemas import user_schema
 import logging
 import os
+from contextlib import asynccontextmanager
 from pathlib import Path
-from dotenv import load_dotenv
-import httpx
 
-from fastapi import Depends, FastAPI, HTTPException, Response
-from sqlalchemy.exc import IntegrityError
+import httpx
+from dotenv import load_dotenv
+from fastapi import Depends, FastAPI, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy import text
-from sqlalchemy.ext.asyncio import AsyncSession
-import json
 from pydantic import BaseModel
-from database import get_db
+from sqlalchemy import text
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.ext.asyncio import AsyncSession
+
+import json
+from database import AsyncSessionLocal, get_db
 from matrix.app.keymaker import get_keymaker, GEMINI_MODEL
-from secom.app.schemas.user_schema import UserSchema, LoginSchema
 from secom.app.controllers.user_controller import UserController
+from secom.app.schemas.user_schema import LoginSchema, UserSchema
+from titanic.adapter.inbound.api.v1.titanic_command_router import titanic_router as titanic_command_router
+from titanic.adapter.inbound.api.v1.titanic_query_router import titanic_router as titanic_query_router
+from backend.apps.titanic.app.use_cases.train_use_case import JackService
+from doro.app.doro_director import DoroDiretor
 
 logger = logging.getLogger("uvicorn.error")
 
 load_dotenv(Path(__file__).parents[1] / ".env")
 
-app = FastAPI(title="Main page")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    async with AsyncSessionLocal() as session:
+        app.state.jack = await JackService.create(session)
+    yield
+
+
+app = FastAPI(title="Main page", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -31,10 +43,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-keymaker = get_keymaker()
+app.include_router(titanic_command_router)
+app.include_router(titanic_query_router)
 
-from titanic.app.james_controller import JamesController
-from doro.app.doro_director import DoroDiretor
+keymaker = get_keymaker()
 
 
 @app.get("/")
@@ -84,7 +96,7 @@ async def login(req: LoginSchema, db: AsyncSession = Depends(get_db)):
     user = await user_controller.login_user(db, req)
 
     if user is None:
-        return {"error": "이메일 또는 비밀번호가 잘못되었습니다."}
+        raise HTTPException(status_code=401, detail="이메일 또는 비밀번호가 잘못되었습니다.")
 
     return {"access_token": "mock-token", "email": user.email, "name": user.nickname}
 
@@ -111,49 +123,6 @@ async def get_weather(lat: float, lon: float):
         }
     except Exception as e:
         return {"error": str(e)}
-
-
-@app.get("/titanic/data")
-def read_titanic_data():
-    james = JamesController()
-    return james.get_data()
-
-
-@app.get("/titanic/count")
-def read_titanic_count():
-    james = JamesController()
-    count = james.get_count()
-
-    return {"count": count}
-
-@app.get("/titanic/tree")
-def read_titanic_tree():
-    james = JamesController()
-    tree = james.get_tree()
-
-    return {"tree": tree}
-
-@app.get("/titanic/model")
-def read_titanic_model() :
-    james = JamesController()
-    model = james.get_model_name()
-    accuracy = james.get_accuracy()
-
-    return {"model" :model, "accuracy" : accuracy}
-
-@app.get("/titanic/count/survived")
-def read_titanic_count_survived():
-    james = JamesController()
-    count = james.get_survived()
-
-    return {"survived": count}
-
-@app.get("/titanic/count/dead")
-def read_titanic_count_dead():
-    james = JamesController()
-    count = james.get_dead()
-
-    return {"dead": count}
 
 
 @app.get("/doro/data")
