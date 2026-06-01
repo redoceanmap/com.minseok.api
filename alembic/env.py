@@ -1,10 +1,17 @@
 import os
+import sys
 from pathlib import Path
 from logging.config import fileConfig
 
 from dotenv import load_dotenv
 from sqlalchemy import engine_from_config, pool
 from alembic import context
+
+_backend_dir = Path(__file__).parents[1]
+_project_root = _backend_dir.parent
+for _p in [str(_project_root), str(_backend_dir / "apps")]:
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 load_dotenv(Path(__file__).parents[1] / ".env")
 
@@ -14,8 +21,8 @@ config.set_main_option("sqlalchemy.url", os.environ["DATABASE_URL"])
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-from database import Base
-import secom.app.models.user_model  # noqa: UserModel을 Base.metadata에 등록
+from backend.core.database import Base
+import backend.apps.friday13th.domain.entities.user_entity  # noqa: UserModel을 Base.metadata에 등록
 
 target_metadata = Base.metadata
 
