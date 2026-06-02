@@ -3,7 +3,7 @@ import logging
 from backend.apps.titanic.app.ports.input.walter_query_use_case import WalterQueryUseCase
 from backend.apps.titanic.app.ports.output.walter_query_repository import WalterQueryRepository
 
-logger = logging.getLogger("walter.app.walter_query")
+logger = logging.getLogger(__name__)
 
 
 class WalterQueryInteractor(WalterQueryUseCase):

@@ -4,7 +4,7 @@ from backend.apps.titanic.app.ports.output.isidor_query_repository import Isidor
 from backend.apps.titanic.domain.entities.titanic_entity import TitanicPassenger
 from backend.core.database import AsyncSessionLocal
 
-logger = logging.getLogger("isidor.outbound.isidor_query_pg_repository")
+logger = logging.getLogger(__name__)
 
 
 class IsidorQueryPgRepository(IsidorQueryRepository):

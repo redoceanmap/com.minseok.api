@@ -1,10 +1,10 @@
 from abc import ABC, abstractmethod
 
-from backend.apps.titanic.adapter.inbound.api.schemas.james_command_schema import TitanicPassengerRequestSchema
+from backend.apps.titanic.app.dtos.james_dto import PersonCommand, BookingCommand
 
 
 class JamesCommandRepository(ABC):
 
     @abstractmethod
-    async def save_passengers(self, passengers: list[TitanicPassengerRequestSchema]) -> None:
+    async def save_passengers(self, persons: list[PersonCommand], bookings: list[BookingCommand]) -> None:
         pass

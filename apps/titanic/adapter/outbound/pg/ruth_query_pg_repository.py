@@ -4,7 +4,7 @@ from backend.apps.titanic.app.ports.output.ruth_query_repository import RuthQuer
 from backend.apps.titanic.domain.entities.titanic_entity import TitanicPassenger
 from backend.core.database import AsyncSessionLocal
 
-logger = logging.getLogger("ruth.outbound.ruth_query_pg_repository")
+logger = logging.getLogger(__name__)
 
 
 class RuthQueryPgRepository(RuthQueryRepository):

@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Request
 
 from backend.apps.titanic.app.ports.input.andrews_query_use_case import AndrewsQueryUseCase
 
-logger = logging.getLogger("andrews.inbound.andrews_query_router")
+logger = logging.getLogger(__name__)
 
 andrews_query_router = APIRouter(prefix="/titanic/andrews", tags=["andrews-query"])
 

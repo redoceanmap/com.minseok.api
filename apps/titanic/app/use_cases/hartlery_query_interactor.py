@@ -3,7 +3,7 @@ import logging
 from backend.apps.titanic.app.ports.input.hartlery_query_use_case import HartleryQueryUseCase
 from backend.apps.titanic.app.ports.output.hartlery_query_repository import HartleryQueryRepository
 
-logger = logging.getLogger("hartlery.app.hartlery_query")
+logger = logging.getLogger(__name__)
 
 
 class HartleryQueryInteractor(HartleryQueryUseCase):

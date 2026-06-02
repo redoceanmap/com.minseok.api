@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Request
 
 from backend.apps.titanic.app.ports.input.hartlery_query_use_case import HartleryQueryUseCase
 
-logger = logging.getLogger("hartlery.inbound.hartlery_query_router")
+logger = logging.getLogger(__name__)
 
 hartlery_query_router = APIRouter(prefix="/titanic/hartlery", tags=["hartlery-query"])
 

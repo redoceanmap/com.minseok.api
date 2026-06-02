@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Request
 
 from backend.apps.titanic.app.ports.input.isidor_query_use_case import IsidorQueryUseCase
 
-logger = logging.getLogger("isidor.inbound.isidor_query_router")
+logger = logging.getLogger(__name__)
 
 isidor_query_router = APIRouter(prefix="/titanic/isidor", tags=["isidor-query"])
 

@@ -3,7 +3,7 @@ import logging
 from backend.apps.titanic.app.ports.input.ruth_query_use_case import RuthQueryUseCase
 from backend.apps.titanic.app.ports.output.ruth_query_repository import RuthQueryRepository
 
-logger = logging.getLogger("ruth.app.ruth_query")
+logger = logging.getLogger(__name__)
 
 
 class RuthQueryInteractor(RuthQueryUseCase):

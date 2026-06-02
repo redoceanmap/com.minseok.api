@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Request
 
 from backend.apps.titanic.app.ports.input.cal_query_use_case import CalQueryUseCase
 
-logger = logging.getLogger("cal.inbound.cal_query_router")
+logger = logging.getLogger(__name__)
 
 cal_query_router = APIRouter(prefix="/titanic/cal", tags=["cal-query"])
 

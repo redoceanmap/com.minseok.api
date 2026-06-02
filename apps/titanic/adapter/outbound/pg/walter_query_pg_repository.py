@@ -6,7 +6,7 @@ from backend.apps.titanic.app.ports.output.walter_query_repository import Walter
 from backend.apps.titanic.domain.entities.titanic_entity import TitanicPassenger
 from backend.core.database import AsyncSessionLocal
 
-logger = logging.getLogger("walter.outbound.walter_query_pg_repository")
+logger = logging.getLogger(__name__)
 
 
 class WalterQueryPgRepository(WalterQueryRepository):

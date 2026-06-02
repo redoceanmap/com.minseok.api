@@ -3,7 +3,7 @@ import logging
 from backend.apps.titanic.app.ports.input.cal_query_use_case import CalQueryUseCase
 from backend.apps.titanic.app.ports.output.cal_query_repository import CalQueryRepository
 
-logger = logging.getLogger("cal.app.cal_query")
+logger = logging.getLogger(__name__)
 
 
 class CalQueryInteractor(CalQueryUseCase):

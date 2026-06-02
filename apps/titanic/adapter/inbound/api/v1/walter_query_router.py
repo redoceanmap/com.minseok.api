@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Request
 
 from backend.apps.titanic.app.ports.input.walter_query_use_case import WalterQueryUseCase
 
-logger = logging.getLogger("walter.inbound.walter_query_router")
+logger = logging.getLogger(__name__)
 
 walter_query_router = APIRouter(prefix="/titanic/walter", tags=["walter-query"])
 

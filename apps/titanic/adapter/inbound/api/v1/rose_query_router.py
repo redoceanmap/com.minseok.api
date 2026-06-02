@@ -7,7 +7,7 @@ from backend.apps.titanic.app.use_cases.train_interactor import JackService
 from backend.apps.titanic.app.use_cases.model_query_interactor import ModelQueryInteractor
 from backend.apps.titanic.adapter.outbound.model_query_adapter import ModelQueryAdapter
 
-logger = logging.getLogger("rose.inbound.rose_query_router")
+logger = logging.getLogger(__name__)
 
 rose_query_router = APIRouter(prefix="/titanic/rose", tags=["rose-query"])
 

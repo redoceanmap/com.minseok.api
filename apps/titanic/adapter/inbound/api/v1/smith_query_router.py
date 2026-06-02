@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Request
 
 from backend.apps.titanic.app.ports.input.smith_query_use_case import SmithQueryUseCase
 
-logger = logging.getLogger("smith.inbound.smith_query_router")
+logger = logging.getLogger(__name__)
 
 smith_query_router = APIRouter(prefix="/titanic/smith", tags=["smith-query"])
 

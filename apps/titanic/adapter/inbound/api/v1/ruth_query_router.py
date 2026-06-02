@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Request
 
 from backend.apps.titanic.app.ports.input.ruth_query_use_case import RuthQueryUseCase
 
-logger = logging.getLogger("ruth.inbound.ruth_query_router")
+logger = logging.getLogger(__name__)
 
 ruth_query_router = APIRouter(prefix="/titanic/ruth", tags=["ruth-query"])
 

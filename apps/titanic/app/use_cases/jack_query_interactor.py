@@ -3,7 +3,7 @@ import logging
 from backend.apps.titanic.app.ports.input.jack_query_use_case import JackQueryUseCase
 from backend.apps.titanic.app.ports.output.jack_query_repository import JackQueryRepository
 
-logger = logging.getLogger("jack.app.jack_query")
+logger = logging.getLogger(__name__)
 
 
 class JackQueryInteractor(JackQueryUseCase):

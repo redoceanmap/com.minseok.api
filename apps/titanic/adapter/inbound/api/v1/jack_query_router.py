@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Request
 
 from backend.apps.titanic.app.ports.input.jack_query_use_case import JackQueryUseCase
 
-logger = logging.getLogger("jack.inbound.jack_query_router")
+logger = logging.getLogger(__name__)
 
 jack_query_router = APIRouter(prefix="/titanic/jack", tags=["jack-query"])
 

@@ -4,7 +4,7 @@ from backend.apps.titanic.app.ports.output.smith_query_repository import SmithQu
 from backend.apps.titanic.domain.entities.titanic_entity import TitanicPassenger
 from backend.core.database import AsyncSessionLocal
 
-logger = logging.getLogger("smith.outbound.smith_query_pg_repository")
+logger = logging.getLogger(__name__)
 
 
 class SmithQueryPgRepository(SmithQueryRepository):
