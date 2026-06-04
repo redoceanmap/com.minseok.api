@@ -2,7 +2,9 @@ from abc import ABC, abstractmethod
 
 
 class WalterQueryUseCase(ABC):
-
+    
     @abstractmethod
-    async def get_passengers(self) -> list[dict]:
+    def introduce_myself(self):
+        '''월터의 자기소개 메소드'''
         pass
+    
