@@ -1,0 +1,14 @@
+from __future__ import annotations
+
+from abc import ABC, abstractmethod
+
+from titanic.adapter.inbound.api.schemas.passenger_ruth_validation_schema import RuthValidationSchema
+from titanic.app.dtos.passenger_ruth_validation_dto import RuthValidationResponse
+
+
+class RuthValidationUseCase(ABC):
+
+    @abstractmethod
+    def introduce_myself(self, schema: RuthValidationSchema) -> RuthValidationResponse:
+        '''이시도어 커플의 자기소개 메소드'''
+        pass

@@ -1,0 +1,12 @@
+from titanic.adapter.outbound.orm.passenger_jack_trainer_orm import JackTrainerOrm  # noqa
+from titanic.adapter.outbound.orm.passenger_rose_model_orm import RoseModelOrm  # noqa
+from titanic.adapter.outbound.orm.passenger_cal_tester_orm import CalTesterOrm  # noqa
+from titanic.adapter.outbound.orm.passenger_molly_scaler_orm import MollyScalerOrm  # noqa
+from titanic.adapter.outbound.orm.passenger_ruth_validation_orm import RuthValidationOrm  # noqa
+from titanic.adapter.outbound.orm.passenger_isidor_couple_orm import IsidorCoupleOrm  # noqa
+from titanic.adapter.outbound.orm.crew_james_director_orm import JamesDirectorOrm  # noqa
+from titanic.adapter.outbound.orm.crew_smith_captain_orm import SmithCaptainOrm  # noqa
+from titanic.adapter.outbound.orm.crew_hartley_violin_orm import HartleyViolinOrm  # noqa
+from titanic.adapter.outbound.orm.crew_lowe_boat_orm import LoweBoatOrm  # noqa
+from titanic.adapter.outbound.orm.crew_walter_roaster_orm import WalterRoasterOrm  # noqa
+from titanic.adapter.outbound.orm.crew_andrews_architect_orm import AndrewArchitectOrm  # noqa

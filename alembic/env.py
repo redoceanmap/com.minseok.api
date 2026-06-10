@@ -9,7 +9,7 @@ from alembic import context
 
 _backend_dir = Path(__file__).parents[1]
 _project_root = _backend_dir.parent
-for _p in [str(_project_root), str(_backend_dir / "apps")]:
+for _p in [str(_project_root), str(_backend_dir), str(_backend_dir / "apps")]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
@@ -21,8 +21,9 @@ config.set_main_option("sqlalchemy.url", os.environ["DATABASE_URL"])
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-from backend.core.database import Base
-import backend.apps.friday13th.domain.entities.user_entity  # noqa: UserModel을 Base.metadata에 등록
+from core.matrix.grid_neo_theone_base import Base
+import titanic.adapter.outbound.orm.passenger_jack_trainer_orm  # noqa: PersonORM을 Base.metadata에 등록
+import titanic.adapter.outbound.orm.passenger_rose_model_orm  # noqa: BookingORM을 Base.metadata에 등록
 
 target_metadata = Base.metadata
 
