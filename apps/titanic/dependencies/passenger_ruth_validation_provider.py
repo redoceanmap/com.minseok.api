@@ -6,7 +6,7 @@ from core.matrix.grid_oracle_database_manager import get_db
 from titanic.app.ports.input.passenger_ruth_validation_use_case import RuthValidationUseCase
 from titanic.app.use_cases.passenger_ruth_validation_interactor import RuthValidationInteractor
 
-def get_ruth_validation_use_case(
+def get_ruth_validation(
         db: AsyncSession = Depends(get_db)
 ) -> RuthValidationUseCase:
         repository: RuthValidationRepository = RuthValidationPgRepository(session=db)

@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import logging
-logger = logging.getLogger(__name__)
+
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from titanic.app.dtos.passenger_isidor_couple_dto import IsidorCoupleQuery, IsidorCoupleResponse
 
+logger = logging.getLogger(__name__)
 
 class IsidorCouplePgRepository:
     def __init__(self, session: AsyncSession) -> None:

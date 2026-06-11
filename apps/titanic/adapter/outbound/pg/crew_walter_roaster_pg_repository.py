@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import Any
 
-from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from titanic.adapter.outbound.orm.passenger_rose_model_orm import RoseModelOrm as BookingOrm

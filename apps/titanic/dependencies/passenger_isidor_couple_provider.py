@@ -6,7 +6,7 @@ from core.matrix.grid_oracle_database_manager import get_db
 from titanic.app.ports.input.passenger_isidor_couple_use_case import IsidorCoupleUseCase
 from titanic.app.use_cases.passenger_isidor_couple_interactor import IsidorCoupleInteractor
 
-def get_isidor_couple_use_case(
+def get_isidor_couple(
         db: AsyncSession = Depends(get_db)
 ) -> IsidorCoupleUseCase:
         repository: IsidorCoupleRepository = IsidorCouplePgRepository(session=db)

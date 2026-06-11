@@ -3,9 +3,9 @@ import csv
 
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from titanic.adapter.inbound.api.schemas.crew_james_director_schema import JamesDirectorSchema, FileUploadSchema as TitanicRecordSchema
-from titanic.app.dtos.crew_james_director_dto import JamesDirectorResponse, UploadResponse
+from titanic.app.dtos.crew_james_director_dto import UploadResponse
 from titanic.app.ports.input.crew_james_director_use_case import JamesDirectorUseCase
-from titanic.dependencies.crew_james_director_provider import get_james_director_use_case
+from titanic.dependencies.crew_james_director_provider import get_james_director
 
 '''
 james_director_router.py
@@ -18,7 +18,7 @@ james_director_router = APIRouter(prefix="/james", tags=["james"])
 
 @james_director_router.get("/myself")
 async def introduce_myself(
-    james: JamesDirectorUseCase = Depends(get_james_director_use_case)
+    james: JamesDirectorUseCase = Depends(get_james_director)
 ):
     return await james.introduce_myself(
         JamesDirectorSchema(
@@ -31,7 +31,7 @@ async def introduce_myself(
 @james_director_router.post("/upload", response_model=UploadResponse, summary="타이타닉 승객 명단 CSV 파일 업로드")
 async def upload_titanic_file(
     file: UploadFile = File(...),
-    james: JamesDirectorUseCase = Depends(get_james_director_use_case),
+    james: JamesDirectorUseCase = Depends(get_james_director),
 ):
     return await james.upload_titanic_file(
         _parse_csv((await file.read()).decode("utf-8", errors="replace"))

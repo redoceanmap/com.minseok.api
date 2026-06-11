@@ -6,7 +6,7 @@ from core.matrix.grid_oracle_database_manager import get_db
 from titanic.app.ports.input.crew_lowe_boat_use_case import LoweBoatUseCase
 from titanic.app.use_cases.crew_lowe_boat_interactor import LoweBoatInteractor
 
-def get_lowe_boat_use_case(
+def get_lowe_boat(
         db: AsyncSession = Depends(get_db)
 ) -> LoweBoatUseCase:
         repository: LoweBoatRepository = LoweBoatPgRepository(session=db)

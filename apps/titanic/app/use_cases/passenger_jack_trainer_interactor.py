@@ -2,12 +2,13 @@
 
 from titanic.adapter.inbound.api.schemas.passenger_jack_trainer_schema import JackTrainerSchema
 from titanic.app.dtos.passenger_jack_trainer_dto import JackTrainerQuery, JackTrainerResponse
+from titanic.app.ports.input.passenger_jack_trainer_use_case import JackTrainerUseCase
 from titanic.app.ports.output.passenger_jack_trainer_repository import JackTrainerRepository
 
 logger = logging.getLogger(__name__)
 
 
-class JackTrainerInteractor:
+class JackTrainerInteractor(JackTrainerUseCase):
     
     def __init__(self, repository: JackTrainerRepository):
         self.repository = repository

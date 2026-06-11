@@ -1,11 +1,11 @@
 from __future__ import annotations
-
 import logging
-logger = logging.getLogger(__name__)
+
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from titanic.app.dtos.crew_hartley_violin_dto import HartleyViolinQuery, HartleyViolinResponse
 
+logger = logging.getLogger(__name__)
 
 class HartleyViolinPgRepository:
     def __init__(self, session: AsyncSession) -> None:

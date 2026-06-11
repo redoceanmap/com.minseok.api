@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends
 from titanic.adapter.inbound.api.schemas.crew_walter_roaster_schema import WalterRoasterSchema
 from titanic.app.dtos.crew_walter_roaster_dto import WalterRoasterResponse
 from titanic.app.ports.input.crew_walter_roaster_use_case import WalterRoasterUseCase
-from titanic.dependencies.crew_walter_roaster_provider import get_walter_roaster_use_case
+from titanic.dependencies.crew_walter_roaster_provider import get_walter_roaster
 
 '''
 영화 <타이타닉>에서 승객 명단을 관리하는 
@@ -16,7 +16,7 @@ walter_roaster_router = APIRouter(prefix="/walter", tags=["walter"])
 
 @walter_roaster_router.get("/myself")
 async def introduce_myself(
-    walter: WalterRoasterUseCase = Depends(get_walter_roaster_use_case)
+    walter: WalterRoasterUseCase = Depends(get_walter_roaster)
 )->WalterRoasterResponse:
 
     return await walter.introduce_myself(

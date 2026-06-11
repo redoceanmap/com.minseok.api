@@ -1,6 +1,6 @@
 from __future__ import annotations
-
 import logging
+
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.dialects.postgresql import insert
 

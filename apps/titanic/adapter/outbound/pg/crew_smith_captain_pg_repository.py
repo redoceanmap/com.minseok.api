@@ -1,15 +1,13 @@
 from __future__ import annotations
-
+import logging
 from typing import Any
 
-import logging
-logger = logging.getLogger(__name__)
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
-
-from titanic.app.dtos.crew_smith_captain_dto import SmithCaptainQuery, SmithCaptainResponse
+from titanic.app.dtos.crew_smith_captain_dto import SmithCaptainQuery, SmithCaptainResponse, SmithChatQuery, SmithChatResponse
 from titanic.adapter.outbound.orm.passenger_jack_trainer_orm import JackTrainerOrm as PersonOrm
 
+logger = logging.getLogger(__name__)
 
 class SmithCaptainPgRepository:
     def __init__(self, session: AsyncSession) -> None:
@@ -26,6 +24,10 @@ class SmithCaptainPgRepository:
             name= query.name + "가 레포지토리에 다녀옴"
         )
         return response
+
+    async def chat(self, query: SmithChatQuery) -> SmithChatResponse:
+        logger.info(f"[SmithCaptainPgRepository] chat 진입 | request_data={query}")
+        return SmithChatResponse(message=query.message)
 
     async def get_stats(self) -> dict[str, Any]:
         """전체 승객 생존/사망 통계 조회"""
