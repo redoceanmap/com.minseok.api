@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import logging
 
-logger = logging.getLogger(__name__)
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from titanic.app.dtos.passenger_molly_scaler_dto import MollyScalerQuery, MollyScalerResponse
 
+logger = logging.getLogger(__name__)
 
 class MollyScalerPgRepository:
     def __init__(self, session: AsyncSession) -> None:
@@ -19,7 +19,7 @@ class MollyScalerPgRepository:
         logger.info(f"[MollyScalerPgRepository] introduce_myself 진입 | request_data={query}")
         
         response: MollyScalerResponse = MollyScalerResponse(
-            id= query.id * 10000,
+            id= query.id,
             name= query.name + "가 레포지토리에 다녀옴"
         )
         return response

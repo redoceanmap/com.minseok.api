@@ -9,7 +9,7 @@ class AndrewsArchitectSchema(BaseModel):
     model_config = {
         "json_schema_extra": {
             "example": {
-                "id": 2,
+                "id": 1,
                 "name": "Thomas Andrews",
             }
         }

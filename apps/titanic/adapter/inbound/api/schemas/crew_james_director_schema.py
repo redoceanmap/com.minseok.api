@@ -9,7 +9,7 @@ class JamesDirectorSchema(BaseModel):
     model_config = {
         "json_schema_extra": {
             "example": {
-                "id": 4,
+                "id": 3,
                 "name": "James Carmeron",
             }
         }

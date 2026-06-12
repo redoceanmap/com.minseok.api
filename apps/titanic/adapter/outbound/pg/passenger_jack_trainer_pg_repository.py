@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any
 
 import logging
-logger = logging.getLogger(__name__)
+
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -11,6 +11,7 @@ from titanic.app.dtos.passenger_jack_trainer_dto import JackTrainerQuery, JackTr
 from titanic.adapter.outbound.orm.passenger_rose_model_orm import RoseModelOrm as BookingOrm
 from titanic.adapter.outbound.orm.passenger_jack_trainer_orm import JackTrainerOrm as PersonOrm
 
+logger = logging.getLogger(__name__)
 
 class JackTrainerPgRepository:
     def __init__(self, session: AsyncSession) -> None:
@@ -23,7 +24,7 @@ class JackTrainerPgRepository:
         logger.info(f"[JackTrainerPgRepository] introduce_myself 진입 | request_data={query}")
         
         response: JackTrainerResponse = JackTrainerResponse(
-            id= query.id * 10000,
+            id= query.id,
             name= query.name + "가 레포지토리에 다녀옴"
         )
         return response

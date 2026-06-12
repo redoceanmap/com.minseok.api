@@ -21,7 +21,7 @@ async def introduce_myself(
 
     return await walter.introduce_myself(
         WalterRoasterSchema(
-            id=2,
+            id=6,
             name="Walter Nichols",
             memo="타이타닉의 일등 항해사, 승객 명단 관리 담당")
         )

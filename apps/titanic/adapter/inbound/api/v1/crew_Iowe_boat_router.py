@@ -15,7 +15,7 @@ async def introduce_myself(
 ) -> LoweBoatResponse:
     return await lowe.introduce_myself(
         LoweBoatSchema(
-            id=5,
+            id=3,
             name="해롤드 로우 (Harold Lowe)"
         )
     )

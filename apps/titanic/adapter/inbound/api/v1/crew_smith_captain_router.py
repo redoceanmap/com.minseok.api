@@ -33,7 +33,7 @@ async def introduce_myself(
 ) -> SmithCaptainResponse :
     return await smith.introduce_myself(
         SmithCaptainSchema(
-            id=7,
+            id=5,
             name="스미스 선장 (Captain Edward John Smith)"
         )
     )

@@ -9,7 +9,7 @@ class HartleyViolinSchema(BaseModel):
     model_config = {
         "json_schema_extra": {
             "example": {
-                "id": 3,
+                "id": 2,
                 "name": "Wallace Hartley",
             }
         }

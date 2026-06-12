@@ -22,7 +22,7 @@ class JamesDirectorPgRepository(JamesDirectorRepository):
         logger.info(f"[JamesDirectorPgRepository] introduce_myself 진입 | request_data={query}")
         
         response: JamesDirectorResponse = JamesDirectorResponse(
-            id= query.id * 10000,
+            id= query.id,
             name= query.name + "가 레포지토리에 다녀옴"
         )
         return response

@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any
 
 import logging
-logger = logging.getLogger(__name__)
+
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -11,6 +11,7 @@ from titanic.app.dtos.passenger_ruth_validation_dto import RuthValidationQuery, 
 from titanic.adapter.outbound.orm.passenger_rose_model_orm import RoseModelOrm as BookingOrm
 from titanic.adapter.outbound.orm.passenger_jack_trainer_orm import JackTrainerOrm as PersonOrm
 
+logger = logging.getLogger(__name__)
 
 def _row_to_dict(person: PersonOrm, booking: BookingOrm | None) -> dict[str, Any]:
     return {
@@ -41,7 +42,7 @@ class RuthValidationPgRepository:
         logger.info(f"[RuthValidationPgRepository] introduce_myself 진입 | request_data={query}")
         
         response: RuthValidationResponse = RuthValidationResponse(
-            id= query.id * 10000,
+            id= query.id,
             name= query.name + "가 레포지토리에 다녀옴"
         )
         return response

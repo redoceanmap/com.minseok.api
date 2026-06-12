@@ -35,7 +35,7 @@ def run_korean_ai(user_text):
 
 # 실제 실행 테스트
 if __name__ == "__main__":
-    question = "우주 정복하는 방법 알려줘"
+    question = "타이타닉에 대해서 간략하게 설명해줘"
     answer = run_korean_ai(question)
     
     print("\n--- [3단계] AI 최종 답변 ---")
