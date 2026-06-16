@@ -1,22 +1,25 @@
 from pydantic import BaseModel, Field
+from typing import Literal
+
 
 class ChatSchema(BaseModel):
-    message: str = Field(..., description="사용자가 채팅창에 입력한 자연어")
+    messages: str = Field(..., description="채팅 메시지 히스토리")
 
     model_config = {
         "json_schema_extra": {
             "example": {
-                "message": "타이타닉 생존율을 분석해줘",
+                "messages": "탑승객이 몇 명이야 ?",
             }
         }
     }
 
+
 class SmithCaptainSchema(BaseModel):
-    
+
     id: int = Field(0, description="Captain ID")
     name: str = Field("에드워드 스미스", description="Captain's name")
     # 타이타닉 선장. 백만장자들의 선장이라 불렸으며 고조되는 위기 속에 배와 운명을 함께함
-    
+
     model_config = {
         "json_schema_extra": {
             "example": {

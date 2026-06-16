@@ -9,7 +9,7 @@ class JamesDirectorSchema(BaseModel):
     model_config = {
         "json_schema_extra": {
             "example": {
-                "id": 3,
+                "id": 4,
                 "name": "James Carmeron",
             }
         }
@@ -55,4 +55,3 @@ class UploadResultSchema(BaseModel):
     saved: int = Field(..., description="저장된 레코드 수")
 
 
-TitanicRecordSchema = FileUploadSchema

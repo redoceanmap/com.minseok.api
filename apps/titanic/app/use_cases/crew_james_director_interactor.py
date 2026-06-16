@@ -1,9 +1,13 @@
 from __future__ import annotations
 
-from titanic.adapter.inbound.api.schemas.crew_james_director_schema import JamesDirectorSchema, TitanicRecordSchema
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from titanic.adapter.inbound.api.schemas.crew_james_director_schema import JamesDirectorSchema, FileUploadSchema
+
 from titanic.app.ports.input.crew_james_director_use_case import JamesDirectorUseCase
 from titanic.app.ports.output.crew_james_director_repository import JamesDirectorRepository
-from titanic.app.dtos.crew_james_director_dto import BookingCommand, JamesDirectorQuery, JamesDirectorResponse, PassengerCommand, UploadResponse
+from titanic.app.dtos.crew_james_director_dto import BookingCommand, JamesDirectorQuery, JamesDirectorResponse, PassengerCommand
 
 
 class JamesDirectorInteractor(JamesDirectorUseCase):
@@ -19,7 +23,7 @@ class JamesDirectorInteractor(JamesDirectorUseCase):
         ))
 
 
-    async def upload_titanic_file(self, schema: list[TitanicRecordSchema]) -> dict:
+    async def upload_titanic_file(self, schema: list[FileUploadSchema]) -> dict:
         person_commands = [
             PassengerCommand(
                 passenger_id=record.passenger_id or "",
@@ -44,4 +48,4 @@ class JamesDirectorInteractor(JamesDirectorUseCase):
         ]
 
         saved = await self.repository.receive_uploaded_records(person_commands, booking_commands)
-        return UploadResponse(saved=saved)
+        return {"saved": saved}

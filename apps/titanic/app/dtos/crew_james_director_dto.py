@@ -25,10 +25,5 @@ class BookingCommand:
 
 @dataclass
 class JamesDirectorResponse:
-    id: int
-    name: str
+    answer: str
 
-@dataclass
-class UploadResponse:
-    saved: int
-    

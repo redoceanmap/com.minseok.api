@@ -1,10 +1,16 @@
+import logging
 from typing import Annotated
-
 from fastapi import APIRouter, Body, Depends
 from titanic.adapter.inbound.api.schemas.crew_smith_captain_schema import ChatSchema, SmithCaptainSchema
-from titanic.app.dtos.crew_smith_captain_dto import SmithCaptainResponse, SmithChatResponse
+from titanic.app.dtos.crew_smith_captain_dto import SmithCaptainResponse, ChatResponse
 from titanic.app.ports.input.crew_smith_captain_use_case import SmithCaptainUseCase
-from titanic.dependencies.crew_smith_captain_provider import get_smith_captain
+from titanic.app.ports.input.passenger_jack_trainer_use_case import JackTrainerUseCase
+from titanic.app.ports.input.passenger_rose_model_use_case import RoseModelUseCase
+from titanic.dependencies.crew_smith_captain_provider import get_smith_captain_use_case
+from titanic.dependencies.passenger_jack_trainer_provider import get_jack_train_use_case
+from titanic.dependencies.passenger_rose_model_provider import get_rose_model_use_case
+
+logger = logging.getLogger(__name__)
 
 '''
 스미스 선장 (Captain Edward John Smith)
@@ -17,23 +23,23 @@ from titanic.dependencies.crew_smith_captain_provider import get_smith_captain
 smith_captain_router = APIRouter(prefix="/smith", tags=["smith"])
 
 
-
 @smith_captain_router.post("/chat")
 async def chat(
     schema: Annotated[ChatSchema, Body()],
-    smith: SmithCaptainUseCase = Depends(get_smith_captain)
-) -> SmithChatResponse:
-    return await smith.chat(schema)
-
-
+    smith: SmithCaptainUseCase = Depends(get_smith_captain_use_case),
+    jack: JackTrainerUseCase = Depends(get_jack_train_use_case),
+    rose: RoseModelUseCase = Depends(get_rose_model_use_case)
+) -> ChatResponse:
+    logger.info("[smith/chat] messages | text=%s", schema.messages)
+    return await smith.chat(schema, jack, rose)
 
 @smith_captain_router.get("/myself")
 async def introduce_myself(
-    smith: SmithCaptainUseCase = Depends(get_smith_captain)
-) -> SmithCaptainResponse :
+    smith: SmithCaptainUseCase = Depends(get_smith_captain_use_case)
+) -> SmithCaptainResponse:
     return await smith.introduce_myself(
         SmithCaptainSchema(
-            id=5,
+            id=7,
             name="스미스 선장 (Captain Edward John Smith)"
         )
     )

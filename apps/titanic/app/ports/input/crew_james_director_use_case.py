@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from typing import TYPE_CHECKING
 
-from titanic.adapter.inbound.api.schemas.crew_james_director_schema import JamesDirectorSchema
+if TYPE_CHECKING:
+    from titanic.adapter.inbound.api.schemas.crew_james_director_schema import JamesDirectorSchema
 from titanic.app.dtos.crew_james_director_dto import JamesDirectorResponse
 
 

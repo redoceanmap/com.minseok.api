@@ -10,6 +10,7 @@ from sqlalchemy.ext.asyncio import (
 )
 
 from core.config import DATABASE_URL
+from core.matrix.grid_neo_theone_base import Base
 
 
 engine: AsyncEngine | None = None
@@ -46,6 +47,15 @@ async def get_db() -> AsyncGenerator[AsyncSession, None]:
     # 원본의 안전한 비동기 컨텍스트 매니저 패턴 유지
     async with async_session_factory() as session:
         yield session
+
+
+async def create_all_tables() -> None:
+    if engine is None:
+        init_engine()
+
+    if engine is not None:
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
 
 
 async def dispose_engine() -> None:
