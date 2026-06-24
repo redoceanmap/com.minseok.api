@@ -10,5 +10,5 @@ class MoriartyDisruptorUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: MoriartyDisruptorSchema) -> MoriartyDisruptorResponse:
-        '''모리어티 (Moriarty)의 자기소개 메소드'''
+        '''모리어티의 자기소개 메소드'''
         pass

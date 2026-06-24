@@ -16,7 +16,7 @@ class WatsonExecutorPgRepository(WatsonExecutorRepository):
         self.session = session
 
     async def introduce_myself(self, query: WatsonExecutorQuery) -> WatsonExecutorResponse:
-        '''존 왓슨 (John)의 자기 소개 레포지토리 구현 메소드'''
+        '''존 왓슨의 자기 소개 레포지토리 구현 메소드'''
         logger.info(f"[WatsonExecutorPgRepository] introduce_myself 진입 | request_data={query}")
         return WatsonExecutorResponse(
             id=query.id * 10000,

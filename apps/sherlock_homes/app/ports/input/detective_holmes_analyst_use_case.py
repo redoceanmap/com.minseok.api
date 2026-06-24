@@ -10,5 +10,5 @@ class HolmesAnalystUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: HolmesAnalystSchema) -> HolmesAnalystResponse:
-        '''셜록 홈즈 (Sherlock)의 자기소개 메소드'''
+        '''셜록 홈즈의 자기소개 메소드'''
         pass

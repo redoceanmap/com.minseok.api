@@ -10,4 +10,5 @@ class SarabiGuardianUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: SarabiGuardianSchema) -> SarabiGuardianResponse:
+        '''사라비의 자기소개 메소드'''
         pass

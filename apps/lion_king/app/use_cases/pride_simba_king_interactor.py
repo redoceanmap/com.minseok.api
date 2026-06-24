@@ -12,7 +12,7 @@ class SimbaKingInteractor(SimbaKingUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: SimbaKingSchema) -> SimbaKingResponse:
-        '''심바 (Simba)의 자기소개 인터렉트'''
+        '''심바의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(SimbaKingQuery(
             id = schema.id,

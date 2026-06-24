@@ -9,5 +9,5 @@ class IreneIlustratorRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: IreneIlustratorQuery) -> IreneIlustratorResponse:
-        '''아이린 애들러 (Irene)의 자기 소개 레포지토리 추상 메소드'''
+        '''아이린 애들러의 자기 소개 레포지토리 추상 메소드'''
         pass

@@ -10,4 +10,5 @@ class AncestorsStarsUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: AncestorsStarsSchema) -> AncestorsStarsResponse:
+        '''선조들의 자기소개 메소드'''
         pass

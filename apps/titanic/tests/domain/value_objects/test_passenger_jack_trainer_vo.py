@@ -1,51 +1,8 @@
 import pytest
 
-from titanic.domain.value_objects.passenger_jack_trainer_vo import (
-    Age,
-    FamilyRelation,
-    Gender,
-    GenderType,
-    PassengerId,
-    PassengerName,
-    SurvivalStatus,
-)
-
-
-class TestPassengerId:
-    def test_valid_id_creates_successfully(self):
-        pid = PassengerId("P001")
-        assert pid.value == "P001"
-
-    def test_empty_string_raises(self):
-        with pytest.raises(ValueError, match="빈 값"):
-            PassengerId("")
-
-    def test_whitespace_only_raises(self):
-        with pytest.raises(ValueError, match="빈 값"):
-            PassengerId("   ")
-
-    def test_str_returns_value(self):
-        assert str(PassengerId("42")) == "42"
-
-
-class TestPassengerName:
-    def test_valid_name_creates_successfully(self):
-        name = PassengerName("Dawson, Mr. Jack")
-        assert name.full_name == "Dawson, Mr. Jack"
-
-    def test_empty_string_raises(self):
-        with pytest.raises(ValueError):
-            PassengerName("")
-
-    def test_exactly_200_chars_is_allowed(self):
-        PassengerName("A" * 200)
-
-    def test_201_chars_raises(self):
-        with pytest.raises(ValueError, match="200자"):
-            PassengerName("A" * 201)
-
-    def test_normalized_strips_surrounding_whitespace(self):
-        assert PassengerName("  Jack  ").normalized == "Jack"
+from titanic.domain.value_objects.social_vo import Gender, GenderType
+from titanic.domain.value_objects.age_vo import Age, AgeGroup
+from titanic.domain.value_objects.survived_vo import SurvivalStatus
 
 
 class TestGender:
@@ -111,37 +68,23 @@ class TestAge:
     def test_is_minor_false_for_unknown_age(self):
         assert Age(value=None).is_minor is False
 
+    def test_age_group_baby(self):
+        assert Age(value=1.0).age_group == AgeGroup.BABY
 
-class TestFamilyRelation:
-    def test_total_family_size_sums_sib_sp_and_parch(self):
-        assert FamilyRelation(sib_sp=2, parch=3).total_family_size == 5
+    def test_age_group_child(self):
+        assert Age(value=10.0).age_group == AgeGroup.CHILD
 
-    def test_is_alone_when_both_zero(self):
-        assert FamilyRelation(sib_sp=0, parch=0).is_alone is True
+    def test_age_group_teenager(self):
+        assert Age(value=15.0).age_group == AgeGroup.TEENAGER
 
-    def test_not_alone_with_siblings(self):
-        assert FamilyRelation(sib_sp=1, parch=0).is_alone is False
+    def test_age_group_adult(self):
+        assert Age(value=30.0).age_group == AgeGroup.ADULT
 
-    def test_not_alone_with_children(self):
-        assert FamilyRelation(sib_sp=0, parch=1).is_alone is False
+    def test_age_group_senior(self):
+        assert Age(value=65.0).age_group == AgeGroup.SENIOR
 
-    def test_from_raw_parses_string_values(self):
-        relation = FamilyRelation.from_raw("1", "2")
-        assert relation.sib_sp == 1
-        assert relation.parch == 2
-
-    def test_from_raw_none_defaults_to_zero(self):
-        relation = FamilyRelation.from_raw(None, None)
-        assert relation.sib_sp == 0
-        assert relation.parch == 0
-
-    def test_negative_sib_sp_raises(self):
-        with pytest.raises(ValueError, match="sib_sp"):
-            FamilyRelation(sib_sp=-1, parch=0)
-
-    def test_negative_parch_raises(self):
-        with pytest.raises(ValueError, match="parch"):
-            FamilyRelation(sib_sp=0, parch=-1)
+    def test_age_group_unknown_when_none(self):
+        assert Age(value=None).age_group == AgeGroup.UNKNOWN
 
 
 class TestSurvivalStatus:

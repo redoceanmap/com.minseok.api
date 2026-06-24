@@ -9,5 +9,5 @@ class NalaQueenRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: NalaQueenQuery) -> NalaQueenResponse:
-        '''날라 (Nala)의 자기 소개 레포지토리 추상 메소드'''
+        '''날라의 자기 소개 레포지토리 추상 메소드'''
         pass

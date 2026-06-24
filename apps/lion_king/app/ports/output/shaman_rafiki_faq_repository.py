@@ -9,5 +9,5 @@ class RafikiFaqRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: RafikiFaqQuery) -> RafikiFaqResponse:
-        '''라피키 (Rafiki)의 자기 소개 레포지토리 추상 메소드'''
+        '''라피키의 자기 소개 레포지토리 추상 메소드'''
         pass

@@ -12,7 +12,7 @@ class PumbaWarthogInteractor(PumbaWarthogUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: PumbaWarthogSchema) -> PumbaWarthogResponse:
-        '''품바 (Pumba)의 자기소개 인터렉트'''
+        '''품바의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(PumbaWarthogQuery(
             id = schema.id,

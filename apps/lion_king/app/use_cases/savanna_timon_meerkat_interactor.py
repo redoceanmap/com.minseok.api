@@ -12,7 +12,7 @@ class TimonMeerkatInteractor(TimonMeerkatUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: TimonMeerkatSchema) -> TimonMeerkatResponse:
-        '''티몬 (Timon)의 자기소개 인터렉트'''
+        '''티몬의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(TimonMeerkatQuery(
             id = schema.id,

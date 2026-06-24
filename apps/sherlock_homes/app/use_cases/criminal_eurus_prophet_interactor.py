@@ -12,7 +12,7 @@ class EurusProphetInteractor(EurusProphetUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: EurusProphetSchema) -> EurusProphetResponse:
-        '''유라루스 홈즈 (Eurus)의 자기소개 인터렉트'''
+        '''유라루스 홈즈의 자기소개 인터렉트'''
         return await self.repository.introduce_myself(EurusProphetQuery(
             id=schema.id,
             name=schema.name

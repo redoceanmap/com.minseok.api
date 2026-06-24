@@ -9,5 +9,5 @@ class MufasaNewsRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: MufasaNewsQuery) -> MufasaNewsResponse:
-        '''무파사 (Mufasa)의 자기 소개 레포지토리 추상 메소드'''
+        '''무파사의 자기 소개 레포지토리 추상 메소드'''
         pass

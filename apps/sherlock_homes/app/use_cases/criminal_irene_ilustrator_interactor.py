@@ -12,7 +12,7 @@ class IreneIlustratorInteractor(IreneIlustratorUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: IreneIlustratorSchema) -> IreneIlustratorResponse:
-        '''아이린 애들러 (Irene)의 자기소개 인터렉트'''
+        '''아이린 애들러의 자기소개 인터렉트'''
         return await self.repository.introduce_myself(IreneIlustratorQuery(
             id=schema.id,
             name=schema.name

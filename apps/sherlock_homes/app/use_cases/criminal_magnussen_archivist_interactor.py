@@ -12,7 +12,7 @@ class MagnussenArchivistInteractor(MagnussenArchivistUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: MagnussenArchivistSchema) -> MagnussenArchivistResponse:
-        '''마그누센 (Magnussen)의 자기소개 인터렉트'''
+        '''마그누센의 자기소개 인터렉트'''
         return await self.repository.introduce_myself(MagnussenArchivistQuery(
             id=schema.id,
             name=schema.name

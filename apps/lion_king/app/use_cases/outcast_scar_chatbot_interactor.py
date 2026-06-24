@@ -12,7 +12,7 @@ class ScarChatbotInteractor(ScarChatbotUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: ScarChatbotSchema) -> ScarChatbotResponse:
-        '''스카 (Scar)의 자기소개 인터렉트'''
+        '''스카의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(ScarChatbotQuery(
             id = schema.id,

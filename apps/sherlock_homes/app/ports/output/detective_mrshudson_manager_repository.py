@@ -9,5 +9,5 @@ class MrshudsonManagerRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: MrshudsonManagerQuery) -> MrshudsonManagerResponse:
-        '''허드슨 부인 (Mrs. Hudson)의 자기 소개 레포지토리 추상 메소드'''
+        '''허드슨 부인의 자기 소개 레포지토리 추상 메소드'''
         pass

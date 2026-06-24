@@ -16,7 +16,7 @@ class HolmesAnalystPgRepository(HolmesAnalystRepository):
         self.session = session
 
     async def introduce_myself(self, query: HolmesAnalystQuery) -> HolmesAnalystResponse:
-        '''셜록 홈즈 (Sherlock)의 자기 소개 레포지토리 구현 메소드'''
+        '''셜록 홈즈의 자기 소개 레포지토리 구현 메소드'''
         logger.info(f"[HolmesAnalystPgRepository] introduce_myself 진입 | request_data={query}")
         return HolmesAnalystResponse(
             id=query.id * 10000,

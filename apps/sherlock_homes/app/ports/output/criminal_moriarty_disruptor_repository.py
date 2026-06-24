@@ -9,5 +9,5 @@ class MoriartyDisruptorRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: MoriartyDisruptorQuery) -> MoriartyDisruptorResponse:
-        '''모리어티 (Moriarty)의 자기 소개 레포지토리 추상 메소드'''
+        '''모리어티의 자기 소개 레포지토리 추상 메소드'''
         pass

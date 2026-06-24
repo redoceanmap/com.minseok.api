@@ -9,5 +9,5 @@ class AncestorsStarsRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: AncestorsStarsQuery) -> AncestorsStarsResponse:
-        '''선조들 (Ancestors)의 자기 소개 레포지토리 추상 메소드'''
+        '''선조들의 자기 소개 레포지토리 추상 메소드'''
         pass

@@ -12,7 +12,7 @@ class AndersonCollectorInteractor(AndersonCollectorUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: AndersonCollectorSchema) -> AndersonCollectorResponse:
-        '''앤더슨 (Anderson)의 자기소개 인터렉트'''
+        '''앤더슨의 자기소개 인터렉트'''
         return await self.repository.introduce_myself(AndersonCollectorQuery(
             id=schema.id,
             name=schema.name

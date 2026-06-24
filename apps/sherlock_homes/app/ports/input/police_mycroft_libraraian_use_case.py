@@ -10,5 +10,5 @@ class MycroftLibraraianUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: MycroftLibraraianSchema) -> MycroftLibraraianResponse:
-        '''마이크로프트 홈즈 (Mycroft)의 자기소개 메소드'''
+        '''마이크로프트 홈즈의 자기소개 메소드'''
         pass

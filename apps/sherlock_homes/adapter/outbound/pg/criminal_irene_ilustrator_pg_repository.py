@@ -16,7 +16,7 @@ class IreneIlustratorPgRepository(IreneIlustratorRepository):
         self.session = session
 
     async def introduce_myself(self, query: IreneIlustratorQuery) -> IreneIlustratorResponse:
-        '''아이린 애들러 (Irene)의 자기 소개 레포지토리 구현 메소드'''
+        '''아이린 애들러의 자기 소개 레포지토리 구현 메소드'''
         logger.info(f"[IreneIlustratorPgRepository] introduce_myself 진입 | request_data={query}")
         return IreneIlustratorResponse(
             id=query.id * 10000,

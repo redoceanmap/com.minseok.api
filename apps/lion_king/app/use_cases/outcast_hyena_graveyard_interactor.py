@@ -12,7 +12,7 @@ class HyenaGraveyardInteractor(HyenaGraveyardUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: HyenaGraveyardSchema) -> HyenaGraveyardResponse:
-        '''하이에나 무리 (Hyenas)의 자기소개 인터렉트'''
+        '''하이에나 무리의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(HyenaGraveyardQuery(
             id = schema.id,

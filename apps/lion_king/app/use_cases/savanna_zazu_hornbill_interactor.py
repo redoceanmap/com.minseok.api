@@ -12,7 +12,7 @@ class ZazuHornbillInteractor(ZazuHornbillUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: ZazuHornbillSchema) -> ZazuHornbillResponse:
-        '''자주 (Zazu)의 자기소개 인터렉트'''
+        '''자주의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(ZazuHornbillQuery(
             id = schema.id,

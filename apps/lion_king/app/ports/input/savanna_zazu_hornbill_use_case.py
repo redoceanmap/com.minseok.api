@@ -10,4 +10,5 @@ class ZazuHornbillUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: ZazuHornbillSchema) -> ZazuHornbillResponse:
+        '''자주의 자기소개 메소드'''
         pass

@@ -4,7 +4,8 @@ from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from titanic.adapter.inbound.api.schemas.crew_james_director_schema import JamesDirectorSchema
+    from titanic.adapter.inbound.api.schemas.crew_james_director_schema import JamesDirectorSchema, FileUploadSchema
+
 from titanic.app.dtos.crew_james_director_dto import JamesDirectorResponse
 
 

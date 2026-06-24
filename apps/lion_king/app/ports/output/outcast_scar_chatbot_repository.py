@@ -9,5 +9,5 @@ class ScarChatbotRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: ScarChatbotQuery) -> ScarChatbotResponse:
-        '''스카 (Scar)의 자기 소개 레포지토리 추상 메소드'''
+        '''스카의 자기 소개 레포지토리 추상 메소드'''
         pass

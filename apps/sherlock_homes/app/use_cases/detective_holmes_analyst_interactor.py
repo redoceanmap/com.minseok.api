@@ -12,7 +12,7 @@ class HolmesAnalystInteractor(HolmesAnalystUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: HolmesAnalystSchema) -> HolmesAnalystResponse:
-        '''셜록 홈즈 (Sherlock)의 자기소개 인터렉트'''
+        '''셜록 홈즈의 자기소개 인터렉트'''
         return await self.repository.introduce_myself(HolmesAnalystQuery(
             id=schema.id,
             name=schema.name

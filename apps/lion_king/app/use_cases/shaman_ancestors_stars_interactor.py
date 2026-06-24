@@ -12,7 +12,7 @@ class AncestorsStarsInteractor(AncestorsStarsUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: AncestorsStarsSchema) -> AncestorsStarsResponse:
-        '''선조들 (Ancestors)의 자기소개 인터렉트'''
+        '''선조들의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(AncestorsStarsQuery(
             id = schema.id,

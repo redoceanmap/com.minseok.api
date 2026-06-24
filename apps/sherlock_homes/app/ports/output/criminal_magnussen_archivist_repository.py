@@ -9,5 +9,5 @@ class MagnussenArchivistRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: MagnussenArchivistQuery) -> MagnussenArchivistResponse:
-        '''마그누센 (Magnussen)의 자기 소개 레포지토리 추상 메소드'''
+        '''마그누센의 자기 소개 레포지토리 추상 메소드'''
         pass

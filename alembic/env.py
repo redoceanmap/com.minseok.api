@@ -23,7 +23,6 @@ if config.config_file_name is not None:
 
 from core.matrix.grid_neo_theone_base import Base
 import titanic.adapter.outbound.orm.passenger_jack_trainer_orm  # noqa: PersonORM을 Base.metadata에 등록
-import titanic.adapter.outbound.orm.passenger_rose_model_orm  # noqa: BookingORM을 Base.metadata에 등록
 
 target_metadata = Base.metadata
 

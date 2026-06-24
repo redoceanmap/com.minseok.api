@@ -16,7 +16,7 @@ class MaryOperatorPgRepository(MaryOperatorRepository):
         self.session = session
 
     async def introduce_myself(self, query: MaryOperatorQuery) -> MaryOperatorResponse:
-        '''메리 왓슨 (Mary)의 자기 소개 레포지토리 구현 메소드'''
+        '''메리 왓슨의 자기 소개 레포지토리 구현 메소드'''
         logger.info(f"[MaryOperatorPgRepository] introduce_myself 진입 | request_data={query}")
         return MaryOperatorResponse(
             id=query.id * 10000,

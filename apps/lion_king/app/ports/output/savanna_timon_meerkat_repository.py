@@ -9,5 +9,5 @@ class TimonMeerkatRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: TimonMeerkatQuery) -> TimonMeerkatResponse:
-        '''티몬 (Timon)의 자기 소개 레포지토리 추상 메소드'''
+        '''티몬의 자기 소개 레포지토리 추상 메소드'''
         pass

@@ -12,7 +12,7 @@ class MrshudsonManagerInteractor(MrshudsonManagerUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: MrshudsonManagerSchema) -> MrshudsonManagerResponse:
-        '''허드슨 부인 (Mrs. Hudson)의 자기소개 인터렉트'''
+        '''허드슨 부인의 자기소개 인터렉트'''
         return await self.repository.introduce_myself(MrshudsonManagerQuery(
             id=schema.id,
             name=schema.name

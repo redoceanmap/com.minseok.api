@@ -9,5 +9,5 @@ class ShenziPackRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: ShenziPackQuery) -> ShenziPackResponse:
-        '''셴지 (Shenzi)의 자기 소개 레포지토리 추상 메소드'''
+        '''셴지의 자기 소개 레포지토리 추상 메소드'''
         pass

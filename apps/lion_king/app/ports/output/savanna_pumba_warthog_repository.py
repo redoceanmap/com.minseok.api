@@ -9,5 +9,5 @@ class PumbaWarthogRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: PumbaWarthogQuery) -> PumbaWarthogResponse:
-        '''품바 (Pumba)의 자기 소개 레포지토리 추상 메소드'''
+        '''품바의 자기 소개 레포지토리 추상 메소드'''
         pass

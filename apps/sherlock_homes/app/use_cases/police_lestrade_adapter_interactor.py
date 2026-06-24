@@ -12,7 +12,7 @@ class LestradeAdapterInteractor(LestradeAdapterUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: LestradeAdapterSchema) -> LestradeAdapterResponse:
-        '''레스트레이드 경감 (Lestrade)의 자기소개 인터렉트'''
+        '''레스트레이드 경감의 자기소개 인터렉트'''
         return await self.repository.introduce_myself(LestradeAdapterQuery(
             id=schema.id,
             name=schema.name

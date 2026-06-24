@@ -12,7 +12,7 @@ class RafikiFaqInteractor(RafikiFaqUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: RafikiFaqSchema) -> RafikiFaqResponse:
-        '''라피키 (Rafiki)의 자기소개 인터렉트'''
+        '''라피키의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(RafikiFaqQuery(
             id = schema.id,

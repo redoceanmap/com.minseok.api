@@ -2,16 +2,14 @@ from pydantic import BaseModel, Field
 from typing import Literal
 
 
-class ChatSchema(BaseModel):
-    messages: str = Field(..., description="채팅 메시지 히스토리")
+class MessageItem(BaseModel):
+    role: Literal["user", "assistant"]
+    text: str
 
-    model_config = {
-        "json_schema_extra": {
-            "example": {
-                "messages": "탑승객이 몇 명이야 ?",
-            }
-        }
-    }
+
+class ChatSchema(BaseModel):
+    messages: list[MessageItem]
+    systemInstruction: str | None = None
 
 
 class SmithCaptainSchema(BaseModel):
@@ -28,3 +26,5 @@ class SmithCaptainSchema(BaseModel):
             }
         }
     }
+
+

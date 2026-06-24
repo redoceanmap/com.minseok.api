@@ -12,7 +12,7 @@ class MaryOperatorInteractor(MaryOperatorUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: MaryOperatorSchema) -> MaryOperatorResponse:
-        '''메리 왓슨 (Mary)의 자기소개 인터렉트'''
+        '''메리 왓슨의 자기소개 인터렉트'''
         return await self.repository.introduce_myself(MaryOperatorQuery(
             id=schema.id,
             name=schema.name

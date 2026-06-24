@@ -10,5 +10,5 @@ class MollyExaminerUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: MollyExaminerSchema) -> MollyExaminerResponse:
-        '''몰리 후퍼 (Molly)의 자기소개 메소드'''
+        '''몰리 후퍼의 자기소개 메소드'''
         pass

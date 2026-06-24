@@ -9,5 +9,5 @@ class MycroftLibraraianRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: MycroftLibraraianQuery) -> MycroftLibraraianResponse:
-        '''마이크로프트 홈즈 (Mycroft)의 자기 소개 레포지토리 추상 메소드'''
+        '''마이크로프트 홈즈의 자기 소개 레포지토리 추상 메소드'''
         pass

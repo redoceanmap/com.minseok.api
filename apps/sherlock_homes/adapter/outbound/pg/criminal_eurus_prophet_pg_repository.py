@@ -16,7 +16,7 @@ class EurusProphetPgRepository(EurusProphetRepository):
         self.session = session
 
     async def introduce_myself(self, query: EurusProphetQuery) -> EurusProphetResponse:
-        '''유라루스 홈즈 (Eurus)의 자기 소개 레포지토리 구현 메소드'''
+        '''유라루스 홈즈의 자기 소개 레포지토리 구현 메소드'''
         logger.info(f"[EurusProphetPgRepository] introduce_myself 진입 | request_data={query}")
         return EurusProphetResponse(
             id=query.id * 10000,

@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends
+
 from titanic.adapter.inbound.api.schemas.passenger_isidor_couple_schema import IsidorCoupleSchema
 from titanic.app.dtos.passenger_isidor_couple_dto import IsidorCoupleResponse
 from titanic.app.ports.input.passenger_isidor_couple_use_case import IsidorCoupleUseCase

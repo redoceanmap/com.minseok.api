@@ -9,5 +9,5 @@ class LestradeAdapterRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: LestradeAdapterQuery) -> LestradeAdapterResponse:
-        '''레스트레이드 경감 (Lestrade)의 자기 소개 레포지토리 추상 메소드'''
+        '''레스트레이드 경감의 자기 소개 레포지토리 추상 메소드'''
         pass

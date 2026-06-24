@@ -9,5 +9,5 @@ class AndersonCollectorRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: AndersonCollectorQuery) -> AndersonCollectorResponse:
-        '''앤더슨 (Anderson)의 자기 소개 레포지토리 추상 메소드'''
+        '''앤더슨의 자기 소개 레포지토리 추상 메소드'''
         pass

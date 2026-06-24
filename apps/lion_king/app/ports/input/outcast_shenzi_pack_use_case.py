@@ -10,4 +10,5 @@ class ShenziPackUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: ShenziPackSchema) -> ShenziPackResponse:
+        '''셴지의 자기소개 메소드'''
         pass

@@ -12,7 +12,7 @@ class ShenziPackInteractor(ShenziPackUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: ShenziPackSchema) -> ShenziPackResponse:
-        '''셴지 (Shenzi)의 자기소개 인터렉트'''
+        '''셴지의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(ShenziPackQuery(
             id = schema.id,

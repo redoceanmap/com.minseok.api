@@ -48,10 +48,8 @@ class FileUploadSchema(BaseModel):
                 "embarked": "S",
             }
         }
-    }
+     }
 
 
 class UploadResultSchema(BaseModel):
     saved: int = Field(..., description="저장된 레코드 수")
-
-

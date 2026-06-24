@@ -10,5 +10,5 @@ class LestradeAdapterUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: LestradeAdapterSchema) -> LestradeAdapterResponse:
-        '''레스트레이드 경감 (Lestrade)의 자기소개 메소드'''
+        '''레스트레이드 경감의 자기소개 메소드'''
         pass

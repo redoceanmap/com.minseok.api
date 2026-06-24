@@ -9,5 +9,5 @@ class SarabiGuardianRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: SarabiGuardianQuery) -> SarabiGuardianResponse:
-        '''사라비 (Sarabi)의 자기 소개 레포지토리 추상 메소드'''
+        '''사라비의 자기 소개 레포지토리 추상 메소드'''
         pass

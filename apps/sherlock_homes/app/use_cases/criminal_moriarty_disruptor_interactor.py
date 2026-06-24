@@ -12,7 +12,7 @@ class MoriartyDisruptorInteractor(MoriartyDisruptorUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: MoriartyDisruptorSchema) -> MoriartyDisruptorResponse:
-        '''모리어티 (Moriarty)의 자기소개 인터렉트'''
+        '''모리어티의 자기소개 인터렉트'''
         return await self.repository.introduce_myself(MoriartyDisruptorQuery(
             id=schema.id,
             name=schema.name

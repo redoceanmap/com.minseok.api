@@ -10,4 +10,5 @@ class PumbaWarthogUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: PumbaWarthogSchema) -> PumbaWarthogResponse:
+        '''품바의 자기소개 메소드'''
         pass

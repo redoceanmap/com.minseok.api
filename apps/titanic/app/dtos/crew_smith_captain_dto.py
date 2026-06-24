@@ -16,3 +16,4 @@ class SmithCaptainResponse:
 
 class ChatResponse(BaseModel):
     text: str
+ 

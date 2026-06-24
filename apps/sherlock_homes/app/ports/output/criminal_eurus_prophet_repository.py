@@ -9,5 +9,5 @@ class EurusProphetRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: EurusProphetQuery) -> EurusProphetResponse:
-        '''유라루스 홈즈 (Eurus)의 자기 소개 레포지토리 추상 메소드'''
+        '''유라루스 홈즈의 자기 소개 레포지토리 추상 메소드'''
         pass

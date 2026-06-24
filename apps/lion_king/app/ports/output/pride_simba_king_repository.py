@@ -9,5 +9,5 @@ class SimbaKingRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: SimbaKingQuery) -> SimbaKingResponse:
-        '''심바 (Simba)의 자기 소개 레포지토리 추상 메소드'''
+        '''심바의 자기 소개 레포지토리 추상 메소드'''
         pass

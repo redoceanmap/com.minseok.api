@@ -10,5 +10,5 @@ class MagnussenArchivistUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: MagnussenArchivistSchema) -> MagnussenArchivistResponse:
-        '''마그누센 (Magnussen)의 자기소개 메소드'''
+        '''마그누센의 자기소개 메소드'''
         pass

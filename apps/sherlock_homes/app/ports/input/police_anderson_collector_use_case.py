@@ -10,5 +10,5 @@ class AndersonCollectorUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: AndersonCollectorSchema) -> AndersonCollectorResponse:
-        '''앤더슨 (Anderson)의 자기소개 메소드'''
+        '''앤더슨의 자기소개 메소드'''
         pass

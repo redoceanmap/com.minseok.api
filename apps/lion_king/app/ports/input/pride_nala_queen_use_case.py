@@ -10,4 +10,5 @@ class NalaQueenUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: NalaQueenSchema) -> NalaQueenResponse:
+        '''날라의 자기소개 메소드'''
         pass

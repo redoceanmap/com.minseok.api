@@ -9,5 +9,5 @@ class HyenaGraveyardRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: HyenaGraveyardQuery) -> HyenaGraveyardResponse:
-        '''하이에나 무리 (Hyenas)의 자기 소개 레포지토리 추상 메소드'''
+        '''하이에나 무리의 자기 소개 레포지토리 추상 메소드'''
         pass

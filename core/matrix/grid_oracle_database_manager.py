@@ -50,9 +50,10 @@ async def get_db() -> AsyncGenerator[AsyncSession, None]:
 
 
 async def create_all_tables() -> None:
+    # 테이블 생성 시에도 엔진 초기화 여부 체크 추가
     if engine is None:
         init_engine()
-
+        
     if engine is not None:
         async with engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)

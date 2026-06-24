@@ -9,5 +9,5 @@ class ZazuHornbillRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: ZazuHornbillQuery) -> ZazuHornbillResponse:
-        '''자주 (Zazu)의 자기 소개 레포지토리 추상 메소드'''
+        '''자주의 자기 소개 레포지토리 추상 메소드'''
         pass

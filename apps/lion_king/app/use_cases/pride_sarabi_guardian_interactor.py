@@ -12,7 +12,7 @@ class SarabiGuardianInteractor(SarabiGuardianUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: SarabiGuardianSchema) -> SarabiGuardianResponse:
-        '''사라비 (Sarabi)의 자기소개 인터렉트'''
+        '''사라비의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(SarabiGuardianQuery(
             id = schema.id,

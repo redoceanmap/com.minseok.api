@@ -12,7 +12,7 @@ class MollyExaminerInteractor(MollyExaminerUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: MollyExaminerSchema) -> MollyExaminerResponse:
-        '''몰리 후퍼 (Molly)의 자기소개 인터렉트'''
+        '''몰리 후퍼의 자기소개 인터렉트'''
         return await self.repository.introduce_myself(MollyExaminerQuery(
             id=schema.id,
             name=schema.name

@@ -12,7 +12,7 @@ class MufasaNewsInteractor(MufasaNewsUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: MufasaNewsSchema) -> MufasaNewsResponse:
-        '''무파사 (Mufasa)의 자기소개 인터렉트'''
+        '''무파사의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(MufasaNewsQuery(
             id = schema.id,

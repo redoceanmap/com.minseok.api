@@ -9,5 +9,5 @@ class MollyExaminerRepository(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: MollyExaminerQuery) -> MollyExaminerResponse:
-        '''몰리 후퍼 (Molly)의 자기 소개 레포지토리 추상 메소드'''
+        '''몰리 후퍼의 자기 소개 레포지토리 추상 메소드'''
         pass

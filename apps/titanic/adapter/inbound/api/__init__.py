@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+# titanic_router는 main.py에서 처음 접근할 때 지연 생성됩니다.
+# 이 패키지의 schemas/* 서브모듈을 임포트할 때 라우터 체인이 즉시 로드되지 않도록
+# PEP 562 (module __getattr__) 패턴을 사용합니다.
+
 _titanic_router = None
 
 
@@ -23,8 +27,6 @@ def _build_titanic_router():
     from titanic.adapter.inbound.api.v1.passenger_isidor_couple_router import isidor_couple_router
     from titanic.adapter.inbound.api.v1.passenger_jack_trainer_router import jack_trainer_router
     from titanic.adapter.inbound.api.v1.crew_james_director_router import james_director_router
-    from titanic.adapter.inbound.api.v1.crew_Iowe_boat_router import lowe_boat_router
-    from titanic.adapter.inbound.api.v1.passenger_molly_scaler_router import molly_scaler_router
     from titanic.adapter.inbound.api.v1.passenger_rose_model_router import rose_model_router
     from titanic.adapter.inbound.api.v1.passenger_ruth_validation_router import ruth_validation_router
     from titanic.adapter.inbound.api.v1.crew_smith_captain_router import smith_captain_router
@@ -41,6 +43,4 @@ def _build_titanic_router():
     router.include_router(andrews_architect_router)
     router.include_router(hartley_violin_router)
     router.include_router(isidor_couple_router)
-    router.include_router(lowe_boat_router)
-    router.include_router(molly_scaler_router)
     return router

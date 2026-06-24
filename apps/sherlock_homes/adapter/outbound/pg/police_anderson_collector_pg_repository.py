@@ -16,7 +16,7 @@ class AndersonCollectorPgRepository(AndersonCollectorRepository):
         self.session = session
 
     async def introduce_myself(self, query: AndersonCollectorQuery) -> AndersonCollectorResponse:
-        '''앤더슨 (Anderson)의 자기 소개 레포지토리 구현 메소드'''
+        '''앤더슨의 자기 소개 레포지토리 구현 메소드'''
         logger.info(f"[AndersonCollectorPgRepository] introduce_myself 진입 | request_data={query}")
         return AndersonCollectorResponse(
             id=query.id * 10000,

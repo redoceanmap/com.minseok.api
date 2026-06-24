@@ -16,7 +16,7 @@ class MollyExaminerPgRepository(MollyExaminerRepository):
         self.session = session
 
     async def introduce_myself(self, query: MollyExaminerQuery) -> MollyExaminerResponse:
-        '''몰리 후퍼 (Molly)의 자기 소개 레포지토리 구현 메소드'''
+        '''몰리 후퍼의 자기 소개 레포지토리 구현 메소드'''
         logger.info(f"[MollyExaminerPgRepository] introduce_myself 진입 | request_data={query}")
         return MollyExaminerResponse(
             id=query.id * 10000,

@@ -16,7 +16,7 @@ class MrshudsonManagerPgRepository(MrshudsonManagerRepository):
         self.session = session
 
     async def introduce_myself(self, query: MrshudsonManagerQuery) -> MrshudsonManagerResponse:
-        '''허드슨 부인 (Mrs. Hudson)의 자기 소개 레포지토리 구현 메소드'''
+        '''허드슨 부인의 자기 소개 레포지토리 구현 메소드'''
         logger.info(f"[MrshudsonManagerPgRepository] introduce_myself 진입 | request_data={query}")
         return MrshudsonManagerResponse(
             id=query.id * 10000,

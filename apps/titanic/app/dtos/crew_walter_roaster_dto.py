@@ -12,3 +12,4 @@ class WalterRoasterResponse:
     
     id: int   # 직관적인 타입 변경
     name: str
+ 

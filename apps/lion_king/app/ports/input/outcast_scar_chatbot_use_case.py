@@ -10,4 +10,5 @@ class ScarChatbotUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: ScarChatbotSchema) -> ScarChatbotResponse:
+        '''스카의 자기소개 메소드'''
         pass

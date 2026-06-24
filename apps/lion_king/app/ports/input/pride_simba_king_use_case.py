@@ -10,4 +10,5 @@ class SimbaKingUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: SimbaKingSchema) -> SimbaKingResponse:
+        '''심바의 자기소개 메소드'''
         pass

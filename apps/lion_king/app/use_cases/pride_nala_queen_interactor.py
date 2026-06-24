@@ -12,7 +12,7 @@ class NalaQueenInteractor(NalaQueenUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: NalaQueenSchema) -> NalaQueenResponse:
-        '''날라 (Nala)의 자기소개 인터렉트'''
+        '''날라의 자기소개 인터렉트'''
 
         return await self.repository.introduce_myself(NalaQueenQuery(
             id = schema.id,

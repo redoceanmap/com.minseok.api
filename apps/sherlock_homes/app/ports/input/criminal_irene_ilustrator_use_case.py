@@ -10,5 +10,5 @@ class IreneIlustratorUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: IreneIlustratorSchema) -> IreneIlustratorResponse:
-        '''아이린 애들러 (Irene)의 자기소개 메소드'''
+        '''아이린 애들러의 자기소개 메소드'''
         pass

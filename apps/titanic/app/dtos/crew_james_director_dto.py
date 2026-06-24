@@ -6,6 +6,11 @@ class JamesDirectorQuery:
     name: str
 
 @dataclass
+class JamesDirectorResponse:
+    id: str
+    name: str
+
+@dataclass
 class PassengerCommand:
     passenger_id: str
     name: str
@@ -23,7 +28,9 @@ class BookingCommand:
     cabin: str
     embarked: str
 
-@dataclass
-class JamesDirectorResponse:
-    answer: str
-
+@dataclass(frozen=True)
+class UploadRecordsResult:
+    """수정 불가능한 순수 결과 배달부 DTO"""
+    success: bool
+    uploaded_count: int
+    message: str

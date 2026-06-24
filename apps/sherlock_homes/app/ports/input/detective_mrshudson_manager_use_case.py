@@ -10,5 +10,5 @@ class MrshudsonManagerUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: MrshudsonManagerSchema) -> MrshudsonManagerResponse:
-        '''허드슨 부인 (Mrs. Hudson)의 자기소개 메소드'''
+        '''허드슨 부인의 자기소개 메소드'''
         pass

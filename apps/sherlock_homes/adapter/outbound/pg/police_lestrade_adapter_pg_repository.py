@@ -16,7 +16,7 @@ class LestradeAdapterPgRepository(LestradeAdapterRepository):
         self.session = session
 
     async def introduce_myself(self, query: LestradeAdapterQuery) -> LestradeAdapterResponse:
-        '''레스트레이드 경감 (Lestrade)의 자기 소개 레포지토리 구현 메소드'''
+        '''레스트레이드 경감의 자기 소개 레포지토리 구현 메소드'''
         logger.info(f"[LestradeAdapterPgRepository] introduce_myself 진입 | request_data={query}")
         return LestradeAdapterResponse(
             id=query.id * 10000,
