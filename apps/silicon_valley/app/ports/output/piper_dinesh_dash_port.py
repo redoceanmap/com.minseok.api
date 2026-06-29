@@ -9,5 +9,5 @@ class DineshDashPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: DineshDashQuery) -> DineshDashResponse:
-        '''디네시 개발자의 자기소개 레포지토리 추상 메소드'''
+        '''딘에쉬 대시 레포지터리 추상 메소드'''
         pass

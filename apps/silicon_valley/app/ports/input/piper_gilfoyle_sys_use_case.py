@@ -10,5 +10,5 @@ class GilfoyleSysUseCase(ABC):
 
     @abstractmethod
     def introduce_myself(self, schema: GilfoyleSysSchema) -> GilfoyleSysResponse:
-        '''길포일 시스템 엔지니어의 자기소개 메소드'''
+        '''길포일 시스템의 자기소개 메소드'''
         pass

@@ -12,9 +12,9 @@ class BighettiHrInteractor(BighettiHrUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: BighettiHrSchema) -> BighettiHrResponse:
-        '''비게티 HR의 자기소개 인터렉트'''
+        '''비게티 HR 자기소개 인터랙트'''
 
         return await self.repository.introduce_myself(BighettiHrQuery(
-            id = schema.id,
-            name = schema.name
+            id=schema.id,
+            name=schema.name,
         ))

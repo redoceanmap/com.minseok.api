@@ -10,5 +10,5 @@ class DunnCooUseCase(ABC):
 
     @abstractmethod
     def introduce_myself(self, schema: DunnCooSchema) -> DunnCooResponse:
-        '''던 COO의 자기소개 메소드'''
+        '''재러드 던 COO의 자기소개 메소드'''
         pass

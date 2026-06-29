@@ -10,5 +10,5 @@ class DineshDashUseCase(ABC):
 
     @abstractmethod
     def introduce_myself(self, schema: DineshDashSchema) -> DineshDashResponse:
-        '''디네시 개발자의 자기소개 메소드'''
+        '''딘에쉬 대시의 자기소개 메소드'''
         pass

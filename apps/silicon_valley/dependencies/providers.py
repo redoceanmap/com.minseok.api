@@ -1,9 +1,8 @@
-# dependencies/providers.py (예시)
+import os
 
 from silicon_valley.adapter.outbound.client.n8n_client import N8nClient
 
-# 실제 환경에서는 환경 변수(os.environ)에서 URL을 가져옵니다.
-N8N_WEBHOOK_URL = "https://your-n8n-instance.com/webhook/..."
+N8N_WEBHOOK_URL = os.environ.get("N8N_WEBHOOK_URL", "")
 
 
 def get_n8n_client() -> N8nClient:

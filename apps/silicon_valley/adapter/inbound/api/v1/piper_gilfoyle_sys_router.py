@@ -7,20 +7,20 @@ from silicon_valley.dependencies.piper_gilfoyle_sys_provider import get_gilfoyle
 
 '''
 버트람 길포일 (Bertram Gilfoyle)
-파이드 파이퍼의 시스템·네트워크 아키텍트. 인프라와 서버를 도맡는 냉소적인 시스템 엔지니어로, 시스템 운영과 보안을 다루는 역할에 어울립니다.
-
-추천 파일명: piper_gilfoyle_sys_router.py (Sys: 시스템 아키텍트)
+피드 파이퍼의 시스템 아키텍트. 자칭 사타니스트. 딘에쉬를 만성으로 무시하지만 실력은 팀 최정상급.
+서버 인프라 전반을 홀로 관리하며 냉소적인 한마디로 회의 분위기를 압도함.
 '''
-gilfoyle_router = APIRouter(prefix="/gilfoyle", tags=["gilfoyle"])
+gilfoyle_sys_router = APIRouter(prefix="/gilfoyle", tags=["gilfoyle"])
 
-@gilfoyle_router.get("/myself")
+
+@gilfoyle_sys_router.get("/myself")
 async def introduce_myself(
     gilfoyle: GilfoyleSysUseCase = Depends(get_gilfoyle_sys_use_case)
-) -> GilfoyleSysResponse :
+) -> GilfoyleSysResponse:
 
     return await gilfoyle.introduce_myself(
         GilfoyleSysSchema(
-            id=2,
-            name="버트람 길포일 (Bertram Gilfoyle)"
+            id=4,
+            name="버트람 길포일 (Bertram Gilfoyle)",
         )
     )

@@ -9,5 +9,5 @@ class DunnCooPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: DunnCooQuery) -> DunnCooResponse:
-        '''던 COO의 자기소개 레포지토리 추상 메소드'''
+        '''재러드 던 COO 레포지터리 추상 메소드'''
         pass

@@ -12,9 +12,9 @@ class DunnCooInteractor(DunnCooUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: DunnCooSchema) -> DunnCooResponse:
-        '''던 COO의 자기소개 인터렉트'''
+        '''재러드 던 COO 자기소개 인터랙트'''
 
         return await self.repository.introduce_myself(DunnCooQuery(
-            id = schema.id,
-            name = schema.name
+            id=schema.id,
+            name=schema.name,
         ))

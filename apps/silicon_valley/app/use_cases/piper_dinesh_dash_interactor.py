@@ -12,9 +12,9 @@ class DineshDashInteractor(DineshDashUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: DineshDashSchema) -> DineshDashResponse:
-        '''디네시 개발자의 자기소개 인터렉트'''
+        '''딘에쉬 대시 자기소개 인터랙트'''
 
         return await self.repository.introduce_myself(DineshDashQuery(
-            id = schema.id,
-            name = schema.name
+            id=schema.id,
+            name=schema.name,
         ))

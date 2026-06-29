@@ -12,9 +12,9 @@ class GilfoyleSysInteractor(GilfoyleSysUseCase):
         self.repository = repository
 
     async def introduce_myself(self, schema: GilfoyleSysSchema) -> GilfoyleSysResponse:
-        '''길포일 시스템 엔지니어의 자기소개 인터렉트'''
+        '''길포일 시스템 자기소개 인터랙트'''
 
         return await self.repository.introduce_myself(GilfoyleSysQuery(
-            id = schema.id,
-            name = schema.name
+            id=schema.id,
+            name=schema.name,
         ))

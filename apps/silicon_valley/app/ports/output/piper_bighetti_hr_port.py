@@ -9,5 +9,5 @@ class BighettiHrPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: BighettiHrQuery) -> BighettiHrResponse:
-        '''비게티 HR의 자기소개 레포지토리 추상 메소드'''
+        '''비게티 HR 레포지터리 추상 메소드'''
         pass

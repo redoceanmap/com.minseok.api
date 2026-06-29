@@ -1,7 +1,7 @@
 ﻿import logging
 
-from friday_13th.app.port.output.jason_repository_port import JasonRepository
-from friday_13th.app.schemas.user_schema import UserSchema
+from kingsman.app.port.output.jason_repository_port import JasonRepository
+from kingsman.app.schemas.user_schema import UserSchema
 
 logger = logging.getLogger(__name__)
 

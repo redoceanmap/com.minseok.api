@@ -9,5 +9,5 @@ class GilfoyleSysPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: GilfoyleSysQuery) -> GilfoyleSysResponse:
-        '''길포일 시스템 엔지니어의 자기소개 레포지토리 추상 메소드'''
+        '''길포일 시스템 레포지터리 추상 메소드'''
         pass

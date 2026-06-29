@@ -1,3 +1,3 @@
-﻿from ffriday_13thapp.services.user_service import UserService
+﻿from kingsman.app.services.user_service import UserService
 
 __all__ = ["UserService"]

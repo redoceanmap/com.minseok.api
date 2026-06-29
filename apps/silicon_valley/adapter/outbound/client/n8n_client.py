@@ -1,7 +1,4 @@
-# adapter/outbound/client/n8n_client.py
-
 import httpx
-
 from typing import Dict, Any
 
 
@@ -18,9 +15,7 @@ class N8nClient:
         async with httpx.AsyncClient() as client:
             try:
                 response = await client.post(self.webhook_url, json=payload)
-                # 성공 시 True, 실패 시 False 반환
                 return response.status_code == 200
             except Exception as e:
                 print(f"n8n 전송 실패: {e}")
                 return False
-1

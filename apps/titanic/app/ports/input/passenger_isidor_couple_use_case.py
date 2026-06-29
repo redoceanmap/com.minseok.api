@@ -10,4 +10,4 @@ class IsidorCoupleUseCase(ABC):
 
     @abstractmethod
     async def introduce_myself(self, schema: IsidorCoupleSchema) -> IsidorCoupleResponse:
-        '''이시도어 커플의 자기소개 인터렉트'''
+        pass
