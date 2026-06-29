@@ -19,6 +19,7 @@ ollama
 kiwipiepy==0.23.1
 pytest>=8.0
 pytest-asyncio>=0.23
+import-linter>=2.0
 
 # PyTorch / MLX (Apple Silicon 로컬 개발용 — Linux 컨테이너에서는 설치 제외)
 torch==2.12.1; sys_platform == "darwin"

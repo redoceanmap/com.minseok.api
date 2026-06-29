@@ -1,1 +1,1 @@
-../vault/minseok/CLAUDE.md
+_docs/CLAUDE.md

@@ -23,3 +23,4 @@ class N8nClient:
             except Exception as e:
                 print(f"n8n 전송 실패: {e}")
                 return False
+1
