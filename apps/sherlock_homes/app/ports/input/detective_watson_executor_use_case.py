@@ -2,13 +2,12 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from sherlock_homes.adapter.inbound.api.schemas.detective_watson_executor_dto import WatsonExecutorDto
-from sherlock_homes.app.dtos.detective_watson_executor_dto import WatsonExecutorResponse
+from sherlock_homes.app.dtos.detective_watson_executor_dto import DispatchCommand, DispatchResult
 
 
 class WatsonExecutorUseCase(ABC):
 
     @abstractmethod
-    async def introduce_myself(self, schema: WatsonExecutorDto) -> WatsonExecutorResponse:
-        '''존 왓슨의 자기소개 메소드'''
-        pass
+    async def dispatch(self, command: DispatchCommand) -> DispatchResult:
+        '''주제로 이메일을 작성해 지정한 주소로 발송한다.'''
+        ...

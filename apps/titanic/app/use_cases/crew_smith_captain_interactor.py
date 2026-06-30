@@ -104,10 +104,11 @@ class SmithCaptainInteractor(SmithCaptainUseCase):
         # ── STATISTICS ─────────────────────────────────────────────────
         if intent == "STATISTICS":
             features = [
-                "survived", "pclass", "age", "sibsp", "parch", "fare",
-                "gender", "embarked_code", "family_size", "title",
+                "survived", "pclass", "AgeGroup", "sib_sp", "parch",
+                "FareBand", "gender", "embarked", "Title",
             ]
-            train_df  = featured_set[0]
+            # feature_engineering은 survived를 라벨로 분리하므로 통계용으로 재결합
+            train_df  = featured_set[0].assign(survived=featured_set[1])
             available = [f for f in features if f in train_df.columns]
             corr = (
                 train_df[available].corr()["survived"]
@@ -116,10 +117,10 @@ class SmithCaptainInteractor(SmithCaptainUseCase):
                 .sort_values(ascending=False)
             )
             label = {
-                "gender": "성별", "title": "호칭", "pclass": "객실 등급",
-                "fare": "운임", "embarked_code": "탑승 항구",
-                "age": "나이", "family_size": "가족 수",
-                "sibsp": "형제/배우자", "parch": "부모/자녀",
+                "gender": "성별", "Title": "호칭", "pclass": "객실 등급",
+                "FareBand": "운임", "embarked": "탑승 항구",
+                "AgeGroup": "나이",
+                "sib_sp": "형제/배우자", "parch": "부모/자녀",
             }
             lines = ["📊 생존율과의 상관관계 순위\n"]
             for rank, (feat, val) in enumerate(corr.items(), 1):
@@ -138,7 +139,7 @@ class SmithCaptainInteractor(SmithCaptainUseCase):
 
         # ── PASSENGER_SEARCH ───────────────────────────────────────────
         if intent == "PASSENGER_SEARCH":
-            train_df = featured_set[0]
+            train_df = featured_set[0].assign(survived=featured_set[1])
             lines = ["📋 승객 통계\n"]
             if "gender" in train_df.columns:
                 male_rate   = train_df[train_df["gender"] == 0]["survived"].mean()
@@ -163,7 +164,7 @@ class SmithCaptainInteractor(SmithCaptainUseCase):
         train_df = self.walter.get_train_set()
         test_df = self.walter.get_test_set()
         featured_set = self.lowe.feature_engineering(train_df, test_df)
-        df = featured_set[0]
+        df = featured_set[0].assign(survived=featured_set[1])
 
         if df.empty:
             return ReportSummaryResponse(

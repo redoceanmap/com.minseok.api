@@ -20,12 +20,20 @@ class LoweBoatInteractor(LoweBoatUseCase):
         self.repository = repository
 
     
-    def feature_engineering(self, train_set):
+    def feature_engineering(self, train_set, test_set=None):
         train = train_set.copy()
+
+        # 0. survived가 빈 값('')인 미확인 행은 학습 라벨이 없으므로 제외
+        train = train[train["survived"].astype(str).str.strip().isin(["0", "1"])].copy()
 
         # 1. Label 분리
         y_label = train["survived"].astype(int).tolist()
         train = train.drop("survived", axis=1)
+
+        # 1-1. 숫자형 문자열 컬럼 정규화 (Neon은 전부 text로 저장)
+        for _col in ("sib_sp", "parch", "pclass"):
+            if _col in train.columns:
+                train[_col] = pd.to_numeric(train[_col], errors="coerce").fillna(0).astype(int)
 
         # 2. 호칭 추출 및 Nominal 변환
         train["Title"] = train["name"].str.extract(r"([A-Za-z]+)\.", expand=False)
@@ -56,7 +64,7 @@ class LoweBoatInteractor(LoweBoatUseCase):
         train["AgeGroup"] = train["AgeGroup"].map(age_mapping).fillna(0).astype(int)
 
         # 5. 승선항 Nominal 변환
-        train["embarked"] = train["embarked"].fillna("S").map({"S": 1, "C": 2, "Q": 3})
+        train["embarked"] = train["embarked"].replace("", "S").fillna("S").map({"S": 1, "C": 2, "Q": 3})
 
         # 6. 요금 Ordinal 변환 (train 기준 4분위 구간 정의)
         train["fare"] = pd.to_numeric(train["fare"], errors="coerce").fillna(0)
@@ -68,6 +76,8 @@ class LoweBoatInteractor(LoweBoatUseCase):
         # 7. 불필요 컬럼 드롭
         drop_cols = ["name", "age", "fare", "ticket", "cabin", "passenger_id"]
         train = train.drop(columns=[c for c in drop_cols if c in train.columns])
+
+        return [train, y_label]
 
 
     async def introduce_myself(self, schema: LoweBoatSchema) -> LoweBoatResponse:
