@@ -13,7 +13,7 @@ from titanic.adapter.inbound.api.schemas.crew_james_director_schema import (
 def mock_repository():
     repo = MagicMock()
     repo.introduce_myself = AsyncMock(
-        return_value=JamesDirectorResponse(answer="안녕하세요, 제임스입니다.")
+        return_value=JamesDirectorResponse(id=4, name="James Cameron")
     )
     repo.receive_uploaded_records = AsyncMock(return_value=3)
     return repo
@@ -56,7 +56,7 @@ class TestIntroduceMyself:
     async def test_returns_repository_response(self, interactor):
         response = await interactor.introduce_myself(JamesDirectorSchema(id=4, name="James Cameron"))
 
-        assert response.answer == "안녕하세요, 제임스입니다."
+        assert response == JamesDirectorResponse(id=4, name="James Cameron")
 
 
 class TestUploadTitanicFile:

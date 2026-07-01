@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from star_craft.domain.ontology.spam.spam_category import SpamCategory
-from star_craft.domain.ontology.spam.spam_taxonomy import SPAM_TAXONOMY
+from star_craft.domain.spam.spam_category import SpamCategory
+from star_craft.domain.spam.spam_taxonomy import SPAM_TAXONOMY
 
 
 def classify_by_keywords(text: str) -> SpamCategory:

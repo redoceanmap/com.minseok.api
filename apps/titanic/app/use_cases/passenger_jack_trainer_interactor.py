@@ -3,7 +3,6 @@
 import logging
 from typing import Any
 
-import numpy as np
 import pandas as pd
 
 from titanic.adapter.outbound.orm.passenger_rose_model_strategies import build_all_strategies
@@ -21,13 +20,11 @@ class JackTrainerInteractor(JackTrainerUseCase):
         self.repository = repository
         self._trained_strategies: dict = {}
 
-    async def train_model(self, train_set: pd.DataFrame) -> dict[str, Any]:
+    def train_model(self, X: pd.DataFrame, y: list[int]) -> dict[str, Any]:
         '''로즈가 제안한 모델들을 훈련시키는 메소드'''
         logger.info("[JackTrainerInteractor] 학습 파이프라인 시작")
 
-        
-
-        X_train: list[list[float]] = train.values.tolist()
+        X_train: list[list[float]] = X.values.tolist()
 
         # 8. 로즈의 10개 전략으로 학습
         self._trained_strategies = {}
@@ -35,7 +32,7 @@ class JackTrainerInteractor(JackTrainerUseCase):
         for key, StrategyClass in build_all_strategies().items():
             strategy = StrategyClass()
             try:
-                strategy.fit(X_train, y_label)
+                strategy.fit(X_train, y)
                 self._trained_strategies[key] = strategy
                 trained_names.append(strategy.name)
                 logger.info(f"[JackTrainerInteractor] {strategy.name} 학습 완료")

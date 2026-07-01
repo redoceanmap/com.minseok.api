@@ -1,9 +1,10 @@
 from __future__ import annotations
 
+import asyncio
 import logging
 
 from pandas import DataFrame
-from typing import Dict, Any, List
+from typing import List
 
 from titanic.adapter.inbound.api.schemas.crew_smith_captain_schema import ChatSchema, SmithCaptainSchema
 from titanic.app.dtos.crew_smith_captain_dto import SmithCaptainQuery, SmithCaptainResponse, ChatResponse, ReportSummaryResponse
@@ -131,7 +132,7 @@ class SmithCaptainInteractor(SmithCaptainUseCase):
 
         # ── MODEL_TRAIN ────────────────────────────────────────────────
         if intent == "MODEL_TRAIN":
-            result = await self.jack.train_model(featured_set[0])
+            result = await asyncio.to_thread(self.jack.train_model, featured_set[0], featured_set[1])
             accuracy = result.get("accuracy")
             if accuracy:
                 return ChatResponse(text=f"모델 학습 완료. 정확도: {accuracy:.1%}")

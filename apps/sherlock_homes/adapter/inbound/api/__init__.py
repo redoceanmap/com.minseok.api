@@ -19,8 +19,16 @@ def __getattr__(name: str):
 def _build_sherlock_router():
     from fastapi import APIRouter
 
+    from sherlock_homes.adapter.inbound.api.v1.detective_spam_classifier_router import spam_classifier_router
     from sherlock_homes.adapter.inbound.api.v1.detective_watson_executor_router import watson_executor_router
+    from sherlock_homes.adapter.inbound.api.v1.juso_router import juso_router
+    from sherlock_homes.adapter.inbound.api.v1.discord_router import discord_router
+    from sherlock_homes.adapter.inbound.api.v1.telegram_router import telegram_router
 
     router = APIRouter(prefix="/sherlock", tags=["sherlock"])
     router.include_router(watson_executor_router)
+    router.include_router(spam_classifier_router)
+    router.include_router(juso_router)
+    router.include_router(discord_router)
+    router.include_router(telegram_router)
     return router

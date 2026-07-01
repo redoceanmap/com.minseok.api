@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from star_craft.domain.ontology.spam.spam_category import SpamCategory
+from star_craft.domain.spam.spam_category import SpamCategory
 
 # 스팸 분류 온톨로지: 카테고리 ↔ 지시 키워드(개념의 속성).
 # 판정 규칙(spam_rules)이 이 트리를 참조한다. LEGITIMATE은 어떤 카테고리에도

@@ -22,8 +22,8 @@ async def test_dispatch_generates_subject_body_and_sends():
             DispatchCommand(to_email="a@b.com", topic="회의 안내")
         )
 
-    # EXAONE을 본문·제목 각 1회씩 호출
+    # 오케스트레이터를 본문·제목 각 1회씩 호출
     assert mock_orchestrator.orchestrate.await_count == 2
-    # 제목은 strip 되어 본문과 함께 포트로 전달
-    port.send.assert_awaited_once_with("a@b.com", "제목", "본문 내용")
+    # 주소록 미주입(port만) → name="", 제목은 strip 되어 포트로 전달
+    port.send.assert_awaited_once_with("a@b.com", "제목", "본문 내용", name="")
     assert result.status == "sent"

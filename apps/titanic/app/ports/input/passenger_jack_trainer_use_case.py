@@ -7,7 +7,7 @@ from typing import Any
 class JackTrainerUseCase(ABC):
 
     @abstractmethod
-    async def train_model(self, train_set) -> dict[str, Any]:
+    def train_model(self, X, y) -> dict[str, Any]:
         '''로즈가 제안한 모델들을 훈련시키는 메소드'''
 
     @abstractmethod

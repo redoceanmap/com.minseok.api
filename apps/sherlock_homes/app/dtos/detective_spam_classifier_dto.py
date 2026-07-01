@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from pydantic import BaseModel
 
-from star_craft.domain.ontology.spam.spam_category import SpamCategory
+from star_craft.domain.spam.spam_category import SpamCategory
 
 
 @dataclass(frozen=True)
