@@ -24,6 +24,7 @@ def _build_sherlock_router():
     from sherlock_homes.adapter.inbound.api.v1.juso_router import juso_router
     from sherlock_homes.adapter.inbound.api.v1.discord_router import discord_router
     from sherlock_homes.adapter.inbound.api.v1.telegram_router import telegram_router
+    from sherlock_homes.adapter.inbound.api.v1.inbound_mail_router import inbound_mail_router
 
     router = APIRouter(prefix="/sherlock", tags=["sherlock"])
     router.include_router(watson_executor_router)
@@ -31,4 +32,5 @@ def _build_sherlock_router():
     router.include_router(juso_router)
     router.include_router(discord_router)
     router.include_router(telegram_router)
+    router.include_router(inbound_mail_router)
     return router
